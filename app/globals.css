@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%; /* Pure black */
+    --foreground: 0 0% 100%; /* Pure white */
+
+    --card: 0 0% 5%; /* Slightly lighter black for cards */
+    --card-foreground: 0 0% 100%; /* White */
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 270 80% 60%; /* Vibrant purple */
+    --primary-foreground: 0 0% 100%; /* White text on purple */
+
+    --secondary: 0 0% 100%; /* White */
+    --secondary-foreground: 0 0% 100%; /* White text on white */
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 100%; /* White text */
+
+    --accent: 270 70% 50%; /* Slightly darker purple */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 270 80% 60%; /* Purple ring to match primary */
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary/10;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/70 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+@layer components {
+  .heading-text {
+    @apply text-primary; /* Purple text */
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+    box-shadow: 0px 4px 4px 0px #00000040;
+  }
+
+  .cards {
+    @apply bg-card text-card-foreground shadow-md; /* White text on dark cards */
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600; /* Purple gradient */
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-md bg-black/30 border border-white/10 shadow-lg text-white;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-white;
+  }
+  
+  .glow {
+    @apply relative after:absolute after:inset-0 after:-z-10 after:rounded-lg after:bg-purple-600/20 after:blur-xl;
+  }
+  
+  .nav-link {
+    @apply relative px-3 py-2 text-sm font-medium text-white transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:after:w-full;
+  }
+  .health-card {
+    @apply bg-white p-5 rounded-xl shadow-sm border border-gray-100;
+  }
+  
+  .health-icon {
+    @apply p-2 rounded-lg;
+  }
+  .glass-card {
+    background-color: rgba(26, 32, 44, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Animation delays */
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
